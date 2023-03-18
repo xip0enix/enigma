@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700" rel="stylesheet">
+    <title id="head">Startseite</title>
+</head>
+<body>
+
+    <div class="container">
+        <! -- Toogle -->
+        <div class="toggle">
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label for="checkbox" class="label">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <div class="ball"></div>
+            </label>
+        </div>
+        
+        <! -- Uhrzeit und Begrüssung -->
+        <div class="time">
+            <div class="clock">
+                <div id="hour"></div>
+                <div id="separator"></div>
+                <div id="minutes"></div>
+            </div>
+            <div id="title"></div>
+            <div id="quote"></div>  
+        </div>
+        
+        <! -- Wetter -->
+        <div class="weatherblock">
+            <p id="wetter">Wetter</p>
+            <div class="weather">
+                <div class="weatherIcon">
+                    <img src="assets/icons/OneDark/unknown.png" />
+                </div>
+                <div class="weatherValue">
+                    <p>- °<span class="g">c</span></p>
+                </div>
+                <div class="weatherDescription">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <! -- Verknüpfungen -->
+        <div class="shorts">
+                <button id="button_1" onclick="window.location.href='https://youtube.com';"><i class="fa-brands fa-youtube"></i></button>
+                <button id="button_2" onclick="window.location.href='https://open.spotify.com';"><i class="fa-brands fa-spotify"></i></button>
+                <button id="button_3" onclick="window.location.href='https://reddit.com';"><i class="fa-brands fa-reddit-alien"></i></button>
+                <button id="button_4" onclick="window.location.href='https://xip0enix.github.io/pomodoro-timer/';"><i class="fa-regular fa-clock"></i></button>
+                <button id="button_5" onclick="window.location.href='https://twitch.tv';"><i class="fa-brands fa-twitch"></i></button>
+                <button id="button_6" onclick="window.location.href='https://ulricianum-aurich.de/iserv/auth/login';"><i class="fa-solid fa-envelope"></i></button>     
+        </div>
+
+        <! -- Coronazahlen -- >
+        <div class="coronablock">
+            <p id="coronaZahlen">Aktuelle Coronazahlen 🦠</p>
+            <div class="coronazahlen">
+                <div class="neuInfektionen">
+                    <p id="neuInfektionen"></p>
+                </div>
+                <div class="7tage">
+                    <p id="7tage"></p>
+                </div>
+                <div class="neuTode">
+                    <p id="neuTode"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <! -- Scripte -->
+    <script src="js/theme.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/greeting.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/corona.js"></script>
+    <script src="js/quote.js"></script>
+
+</body>
+</html>
