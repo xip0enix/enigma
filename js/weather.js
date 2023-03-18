@@ -15,7 +15,7 @@ weather.temperature = {
 let tempUnit = 'C';
 
 const KELVIN = 273.15;
-const key = '';
+const API_KEY = require('./config');
 
 if (width > 1101) {
 	setPosition();
@@ -46,7 +46,7 @@ function convertTemperature(value, fromUnit, toUnit) {
   }
 
 function getWeather(latitude, longitude) {
-	let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=de&appid=${key}`;
+	let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=de&appid=${API_KEY}`;
 	fetch(api)
 		.then(function(response) {
 			let data = response.json();
