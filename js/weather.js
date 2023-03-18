@@ -15,7 +15,7 @@ weather.temperature = {
 let tempUnit = 'C';
 
 const KELVIN = 273.15;
-const API_KEY = require('./config');
+const API_KEY = process.env.MY_API_KEY;
 
 if (width > 1101) {
 	setPosition();
