@@ -88,19 +88,19 @@ body {
 }
 
 .weather .weatherIcon img {
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
 }
 
 .weather .weatherValue p {
-  font-size: 3vh;
+  font-size: 5vh;
   font-weight: bolder;
   margin-left: 15px;
   color: var(--fc);
 }
 
 .weather .weatherDescription p {
-  font-size: 3vh;
+  font-size: 4vh;
   margin-left: 15px;
   color: var(--fc);
 }
