@@ -104,6 +104,6 @@ function displayWeather() {
 	else {
 		iconElement.innerHTML = `<img src="assets/icons/Nord/${weatherIcons[weather.iconId]}.png"/>`;
 	}
-	tempElement.innerHTML = weather.temperature.value + ' °C';
+	tempElement.innerHTML = Math.round(weather.temperature.value) + ' °C';
 	descElement.textContent = weatherDescriptions[weather.iconId];
 }
