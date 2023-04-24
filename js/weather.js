@@ -76,7 +76,7 @@ const width = screen.width > 1101;
 if (width) {
 	navigator.geolocation.getCurrentPosition(
 		pos => {
-		  let api = `https://api.open-meteo.com/v1/gfs?latitude=${pos.coords.latitude.toFixed(3)}&longitude=${pos.coords.longitude.toFixed(3)}&current_weather=true`;
+		  let api = `https://api.open-meteo.com/v1/forecast?latitude=${pos.coords.latitude.toFixed(3)}&longitude=${pos.coords.longitude.toFixed(3)}&current_weather=true`;
 		  fetch(api)
 			.then(response => response.json())
 			.then(data => {
