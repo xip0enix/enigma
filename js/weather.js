@@ -73,8 +73,9 @@ const tempElement = document.querySelector('.weatherValue p');
 const descElement = document.querySelector('.weatherDescription p');
 const width = screen.width > 1101;
 
-if (width) {
-	navigator.geolocation.getCurrentPosition(
+function getWeather() {
+	if (width) {
+	  navigator.geolocation.getCurrentPosition(
 		pos => {
 		  let api = `https://api.open-meteo.com/v1/forecast?latitude=${pos.coords.latitude.toFixed(3)}&longitude=${pos.coords.longitude.toFixed(3)}&current_weather=true`;
 		  fetch(api)
@@ -85,17 +86,9 @@ if (width) {
 			  weather.is_day = data.current_weather.is_day;
 			  displayWeather();
 			})
-			.catch(err => {
-			  console.error(err);
-			  getWeather(49, 11.5);
-			});
-		},
-		err => {
-		  console.error(err);
-		  getWeather(49, 11.5);
-		}
-	  );
-}
+		});
+	}
+  }
 
 function displayWeather() {
 	if (!weather.is_day == 1) {
@@ -107,3 +100,5 @@ function displayWeather() {
 	tempElement.innerHTML = Math.round(weather.temperature.value) + ' °C';
 	descElement.textContent = weatherDescriptions[weather.iconId];
 }
+getWeather();
+setInterval(getWeather, 300000);
