@@ -15,6 +15,13 @@ function getNews() {
       const newsLink = document.createElement('a');
       newsLink.href = newsArray[i].shareURL;
       newsLink.textContent = newsArray[i].title;
+      newsLink.id = newsArray[i].crop.headerText;
+      newsLink.addEventListener('mouseenter', function() {
+        newsLink.textContent = "#" + newsLink.id;
+      });
+      newsLink.addEventListener('mouseleave', function() {
+        newsLink.textContent = newsArray[i].title;
+      });
       newsItem.appendChild(newsLink);
       newsList.appendChild(newsItem);
     }

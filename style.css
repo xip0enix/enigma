@@ -235,6 +235,7 @@ body {
   color: var(--fc);
   font-family: '', sans-serif;
   display: block;
+  padding-bottom: 7px;
   transition: background-color 0.2s ease-in-out;
 }
 
