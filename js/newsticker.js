@@ -4,6 +4,12 @@ function getNews() {
   .then(data => {
     const newsArray = data.news;
     const newsList = document.getElementById('newsList');
+
+    // Entferne alle vorherigen Elemente der Liste
+    while (newsList.firstChild) {
+      newsList.removeChild(newsList.firstChild);
+    }
+
     for(let i = 0; i < newsArray.length-1; i++) {
       const newsItem = document.createElement('li');
       const newsLink = document.createElement('a');
