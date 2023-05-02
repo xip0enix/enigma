@@ -17,21 +17,13 @@ function createNewsItem(news) {
 
   // Setze die Attribute und Inhalte der DOM-Elemente
   newsLink.href = news.shareURL;
-  newsLinkText.textContent = news.topline;
   newsLink.appendChild(document.createTextNode(news.title + ' ['));
   newsLink.appendChild(newsLinkText);
   newsLink.appendChild(document.createTextNode(']'));
   newsLink.id = news.crop.headerText;
 
-  // Füge Event-Listener hinzu, um die Maus-Interaktion zu verarbeiten
-  newsLink.addEventListener('mouseenter', function() {
-    newsLinkText.textContent = newsLink.id;
-  });
-
-  newsLink.addEventListener('mouseleave', function() {
-    newsLinkText.textContent = news.topline;
-  });
-
+  newsLinkText.textContent = news.topline;
+  
   // Füge CSS-Klassen hinzu, um das Styling zu steuern
   newsLink.classList.add('news-link');
 
