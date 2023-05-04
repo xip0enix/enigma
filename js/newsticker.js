@@ -20,8 +20,7 @@ function createNewsItem(news) {
   newsLink.appendChild(document.createTextNode(news.title + ' ['));
   newsLink.appendChild(newsLinkText);
   newsLink.appendChild(document.createTextNode(']'));
-  newsLink.id = news.crop.headerText;
-
+  
   newsLinkText.textContent = news.topline;
   
   // Füge CSS-Klassen hinzu, um das Styling zu steuern
