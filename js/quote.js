@@ -13,7 +13,7 @@ function getQuote(){
         : data[randomNumber].author;
     
     const quoteElement = document.getElementById("quote");
-    quoteElement.textContent = data[randomNumber].text + ' [' + author + ']'; 
+    quoteElement.textContent = "The important thing is not to stop questioning. Curiosity has its own reason for existing." + ' [' + "Albert Einstein" + ']'; 
   });
 }
 getQuote();
