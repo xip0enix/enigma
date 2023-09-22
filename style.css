@@ -183,12 +183,12 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--fc);
 }
 
-#button_1,
-#button_2,
-#button_3,
-#button_4,
-#button_5,
-#button_6 {
+#button_yt,
+#button_spotify,
+#button_reddit,
+#button_pomodoro,
+#button_twitch,
+#button_email {
   display: grid;
   justify-content: center;
   align-items: center;
@@ -198,32 +198,32 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--border-cc);
 }
 
-#button_1:hover {
+#button_yt:hover {
   background-color: #ff4040;
   border-color: #ff4040;
 }
 
-#button_2:hover {
+#button_spotify:hover {
   background-color: #2dde6c;
   border-color: #2dde6c;
 }
 
-#button_3:hover {
+#button_reddit:hover {
   background-color: #ff7440;
   border-color: #ff7440;
 }
 
-#button_4:hover {
+#button_pomodoro:hover {
   background-color: #25D366;
   border-color: #25D366;
 }
 
-#button_5:hover {
+#button_twitch:hover {
   background-color: #aa92d4;
   border-color: #aa92d4;
 }
 
-#button_6:hover {
+#button_email:hover {
   background-color: #51b2ff;
   border-color: #51b2ff;
 }
