@@ -188,7 +188,7 @@ h1, h2, h3, h4, h5, h6 {
 #button_spotify,
 #button_reddit,
 #button_pomodoro,
-#button_twitch,
+#button_instagram,
 #button_email {
   display: grid;
   justify-content: center;
@@ -219,7 +219,7 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #25D366;
 }
 
-#button_twitch:hover {
+#button_instagram:hover {
   background-color: #aa92d4;
   border-color: #aa92d4;
 }
