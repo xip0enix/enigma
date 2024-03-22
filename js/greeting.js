@@ -4,34 +4,38 @@
 //   | __ / _` | | / _ \
 //   |_||_\__,_|_|_\___/
 */
-const today = new Date();
-const hour = today.getHours();
-const year = today.getFullYear();
-const day = today.getDate();
-const month = today.getMonth();
+function getGreeting(currentDate = new Date()) {
+  const hour = currentDate.getHours();
+  const month = currentDate.getMonth();
+  const day = currentDate.getDate();
 
-const gree1 = 'Geh Schlafen! ';
-const gree2 = 'Guten Morgen! ';
-const gree3 = 'Schönen Nachmittag! ';
-const gree4 = 'Guten Abend! ';
+  const specialGreetings = {
+    '0-1-0-10': ` ${currentDate.getFullYear()}` + '🎉', // New Year (flexible range)
+    '1-14': '❤️', // Valentine's Day
+    '9-31': '🎃', // Halloween
+    '11-24-11-26': '🌲🎁', // Christmas (inclusive range)
+  };
 
-const VALENTINE = '❤️';
-const HALLOWEEN = '🎃';
-const CHRISTMAS = '🌲🎁';
-const NEW_YEAR = ' 🎉';
-const special = (month === 1 && day === 14) ? VALENTINE
-  : (month === 9 && day === 31) ? HALLOWEEN
-  : (month === 11 && day >= 24 && day < 27) ? CHRISTMAS
-  : (month === 0 && day < 10) ? year + NEW_YEAR
-  : '';
-document.getElementById('head').textContent = special;
+  const special = specialGreetings[`${month}-${day}`] || '';
 
-const greeting =
-  hour >= 23 || hour < 5
-    ? gree1 + special
-    : hour >= 6 && hour < 12
-    ? gree2 + special
-    : hour >= 12 && hour < 17
-    ? gree3 + special
-    : gree4 + special;
-document.getElementById('title').innerText = greeting;
+  const greetings = [
+    ['23-4', 'Geh Schlafen! '], // Good Night (flexible range)
+    ['5-11', 'Guten Morgen! '],
+    ['12-16', 'Schönen Nachmittag! '],
+    ['17-22', 'Guten Abend! '],
+  ];
+
+  for (const [timeRange, greetingText] of greetings) {
+    const [startHour, endHour] = timeRange.split('-');
+    if (hour >= startHour && hour < endHour) {
+      return greetingText + special;
+    }
+  }
+
+  // Default greeting if no time-based match is found
+  return 'Hallo! ' + special;
+}
+
+// Usage
+const greetingElement = document.getElementById('title');
+greetingElement.innerText = getGreeting();

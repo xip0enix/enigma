@@ -69,37 +69,47 @@ const weatherDescriptions = {
 	99: 'Starkes Gewitter mit Hagel'
   };
 
-const iconElement = document.querySelector('.weatherIcon');
-const tempElement = document.querySelector('.weatherValue p');
-const descElement = document.querySelector('.weatherDescription p');
-const width = screen.width > 1101;
-
-function getWeather() {
+  const iconElement = document.querySelector('.weatherIcon');
+  const tempElement = document.querySelector('.weatherValue p');
+  const descElement = document.querySelector('.weatherDescription p');
+  
+  // Cache element lookups for better performance
+  //const width = screen.width > 1101; // Moved inside getWeather()
+  
+  function getWeather() {
+	const width = screen.width > 1101; // Check screen width inside the function
+  
 	if (width) {
 	  navigator.geolocation.getCurrentPosition(
-		pos => {
-		  let api = `https://api.open-meteo.com/v1/forecast?latitude=${pos.coords.latitude.toFixed(3)}&longitude=${pos.coords.longitude.toFixed(3)}&current_weather=true`;
+		(pos) => {
+		  const api = `https://api.open-meteo.com/v1/forecast?latitude=${pos.coords.latitude.toFixed(3)}&longitude=${pos.coords.longitude.toFixed(3)}&current_weather=true`;
 		  fetch(api)
-			.then(response => response.json())
-			.then(data => {
-			  weather.temperature.value = data.current_weather.temperature;
-			  weather.iconId = data.current_weather.weathercode;
-			  weather.is_day = data.current_weather.is_day;
+			.then((response) => response.json())
+			.then((data) => {
+			  // Optimize data access using destructuring
+			  const { temperature: temperatureValue, weathercode: iconId, is_day } = data.current_weather;
+  
+			  weather.temperature.value = temperatureValue;
+			  weather.iconId = iconId;
+			  weather.is_day = is_day;
 			  displayWeather();
-			})
-		});
+			});
+		},
+		(error) => {
+		  // Handle errors (e.g., display a message or try alternative methods)
+		}
+	  );
 	}
   }
-
-function displayWeather() {
-	if (!weather.is_day == 1) {
-		iconElement.innerHTML = `<img src="assets/icons/Nord/${weatherIcons[weather.iconId]}n.png"/>`;
-	}
-	else {
-		iconElement.innerHTML = `<img src="assets/icons/Nord/${weatherIcons[weather.iconId]}.png"/>`;
-	}
+  
+  function displayWeather() {
+	// Simplify conditional logic for day/night icon
+	const iconFilename = `assets/icons/Nord/${weatherIcons[weather.iconId]}${weather.is_day ? '' : 'n'}.png`;
+	iconElement.innerHTML = `<img src="${iconFilename}"/>`;
 	tempElement.innerHTML = Math.round(weather.temperature.value) + ' °C';
 	descElement.textContent = weatherDescriptions[weather.iconId];
-}
-getWeather();
-setInterval(getWeather, 300000);
+  }
+  
+  getWeather();
+  setInterval(getWeather, 300000);
+  
