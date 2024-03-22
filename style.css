@@ -1,6 +1,7 @@
 :root {
   --bc: #f5f5f5; /*Background Color*/
   --fc: #3a3a3a; /*Font Color*/
+  --fc_btn: #3a3a3a; /*Font Color*/
   --cc: #f5f5f5; /*Card Color*/
   --border-cc: #f5f5f5; /*Card Border Color*/
 }
@@ -9,6 +10,7 @@
 body.dark {
   --bc: #1e2021; 
   --fc: #c3beb6;
+  --fc_btn: #f5f5f5;
   --cc: #6b6b6b;
   --border-cc: #1e2021;
   transition: background 0.2s linear; 
@@ -123,8 +125,12 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--fc);
 }
 
-.shorts button:hover {
+.shorts button:hover{
   transition: 0.2s ease-in-out;
+}
+
+.shorts button:hover i {
+  color: var(--fc_btn);
 }
 
 .nachrichtenblock {
@@ -200,36 +206,34 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #button_yt:hover {
-  background-color: #ff4040;
-  border-color: #ff4040;
+  background-color: #FF8080;
+  border-color: #FF8080;
 }
 
 #button_spotify:hover {
-  background-color: #2dde6c;
-  border-color: #2dde6c;
+  background-color: #99BC85;
+  border-color: #99BC85;
 }
 
 #button_reddit:hover {
-  background-color: #ff7440;
-  border-color: #ff7440;
+  background-color: #F9B572;
+  border-color: #F9B572;
 }
 
 #button_pomodoro:hover {
-  background-color: #25D366;
-  border-color: #25D366;
+  background-color: #D6C7AE;
+  border-color: #D6C7AE;
 }
 
 #button_instagram:hover {
-  background-color: #aa92d4;
-  border-color: #aa92d4;
+  background-color: #E1AFD1;
+  border-color: #E1AFD1;
 }
 
 #button_email:hover {
-  background-color: #51b2ff;
-  border-color: #51b2ff;
+  background-color: #AAD7D9;
+  border-color: #AAD7D9;
 }
-
-
 
 #newsList {
   padding: 0;
