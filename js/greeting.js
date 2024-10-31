@@ -19,10 +19,10 @@ function getGreeting(currentDate = new Date()) {
   const special = specialGreetings[`${month}-${day}`] || '';
 
   const greetings = [
-    ['23-4', 'Geh Schlafen! '], // Good Night (flexible range)
-    ['5-11', 'Guten Morgen! '],
-    ['12-16', 'Schönen Nachmittag! '],
-    ['17-22', 'Guten Abend! '],
+    ['23-5', 'Geh Schlafen! '], // Good Night (flexible range)
+    ['5-12', 'Guten Morgen! '],
+    ['12-17', 'Schönen Nachmittag! '],
+    ['17-23', 'Guten Abend! '],
   ];
 
   for (const [timeRange, greetingText] of greetings) {
