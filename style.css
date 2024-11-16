@@ -192,7 +192,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #button_yt,
 #button_spotify,
-#button_reddit,
+#button_zeit,
 #button_pomodoro,
 #button_instagram,
 #button_email {
@@ -215,7 +215,7 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #99BC85;
 }
 
-#button_reddit:hover {
+#button_zeit:hover {
   background-color: #F9B572;
   border-color: #F9B572;
 }
